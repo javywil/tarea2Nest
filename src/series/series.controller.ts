@@ -12,7 +12,7 @@ import {
 import { SeriesService } from './series.service';
 import { CreateSerieDto } from './dto/create-serie.dto';
 import { UpdateSerieDto } from './dto/update-serie.dto';
-import { AuthGuard } from '@nestjs/passport';
+import { AuthGuard } from 'src/auth/auth.guard';
 
 @Controller('series')
 export class SeriesController {

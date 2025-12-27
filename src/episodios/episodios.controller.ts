@@ -12,7 +12,7 @@ import {
 import { EpisodiosService } from './episodios.service';
 import { CreateEpisodioDto } from './dto/create-episodio.dto';
 import { UpdateEpisodioDto } from './dto/update-episodio.dto';
-import { AuthGuard } from '@nestjs/passport';
+import { AuthGuard } from 'src/auth/auth.guard';
 
 @Controller('episodios')
 export class EpisodiosController {
