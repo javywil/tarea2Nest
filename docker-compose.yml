@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  postgresDB:
+    image: postgres:16
+    container_name: postgres-nest
+    restart: always
+    environment:
+      POSTGRES_USER: xavi
+      POSTGRES_PASSWORD: 12345678
+      POSTGRES_DB: db_crud
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+    ports:
+      - "5436:5432"
