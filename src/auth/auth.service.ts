@@ -16,7 +16,7 @@ export class AuthService {
     const user = await this.usersService.findOneByEmail(email);
 
     if (user) {
-      throw new BadRequestException('El usuario ya existe');
+      throw new BadRequestException('El usuario ya existe.');
     }
 
     const hashedPassword = await bcryptjs.hash(password, 5);
@@ -50,7 +50,7 @@ export class AuthService {
     const token = await this.jwtService.signAsync(payload);
 
     return {
-      toke: token,
+      token: token,
       email: user.email,
     };
   }

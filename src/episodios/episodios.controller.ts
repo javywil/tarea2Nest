@@ -14,11 +14,11 @@ import { CreateEpisodioDto } from './dto/create-episodio.dto';
 import { UpdateEpisodioDto } from './dto/update-episodio.dto';
 import { AuthGuard } from '@nestjs/passport';
 
-@UseGuards(AuthGuard)
 @Controller('episodios')
 export class EpisodiosController {
   constructor(private readonly episodiosService: EpisodiosService) {}
 
+  @UseGuards(AuthGuard)
   @Post()
   create(@Body() dto: CreateEpisodioDto) {
     return this.episodiosService.create(dto);
@@ -34,6 +34,7 @@ export class EpisodiosController {
     return this.episodiosService.findOne(id);
   }
 
+  @UseGuards(AuthGuard)
   @Patch(':id')
   update(
     @Param('id', ParseIntPipe) id: number,
@@ -42,6 +43,7 @@ export class EpisodiosController {
     return this.episodiosService.update(id, dto);
   }
 
+  @UseGuards(AuthGuard)
   @Delete(':id')
   remove(@Param('id', ParseIntPipe) id: number) {
     return this.episodiosService.remove(id);
