@@ -7,11 +7,14 @@ import {
   Patch,
   Delete,
   ParseIntPipe,
+  UseGuards,
 } from '@nestjs/common';
 import { EpisodiosService } from './episodios.service';
 import { CreateEpisodioDto } from './dto/create-episodio.dto';
 import { UpdateEpisodioDto } from './dto/update-episodio.dto';
+import { AuthGuard } from '@nestjs/passport';
 
+@UseGuards(AuthGuard)
 @Controller('episodios')
 export class EpisodiosController {
   constructor(private readonly episodiosService: EpisodiosService) {}

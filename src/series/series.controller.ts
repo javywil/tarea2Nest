@@ -7,11 +7,14 @@ import {
   Patch,
   Delete,
   ParseIntPipe,
+  UseGuards,
 } from '@nestjs/common';
 import { SeriesService } from './series.service';
 import { CreateSerieDto } from './dto/create-serie.dto';
 import { UpdateSerieDto } from './dto/update-serie.dto';
+import { AuthGuard } from '@nestjs/passport';
 
+@UseGuards(AuthGuard)
 @Controller('series')
 export class SeriesController {
   constructor(private readonly seriesService: SeriesService) {}
